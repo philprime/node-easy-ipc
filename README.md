@@ -12,12 +12,12 @@ It should install like any other package, and build the native components automa
 
 
 ```bash
-$ npm install node-easy-ipc
+$ npm install @fynnix/node-easy-ipc
 ```
 
 **This library is windows only**. If you want to run your app on other platforms, you can make it an optional install:
 ```bash
-$ npm install --save-optional node-easy-ipc
+$ npm install --save-optional @fynnix/node-easy-ipc
 ```
 
 You will then have to deal with the package not being available on other systems in your code. You should look at mmap-io or node-mmap for that.
