@@ -209,22 +209,21 @@ Napi::Value FileMapping::WriteBuffer(const Napi::CallbackInfo &args) {
 Napi::Value FileMapping::ReadInto(const Napi::CallbackInfo &args) {
     Napi::Env env = args.Env();
 
-    if (args.Length() < 4) {
+    if (args.Length() < 3) {
         Napi::TypeError::New(env, "Not enough arguments to FileMapping.readInto").ThrowAsJavaScriptException();
         return Napi::Number::New(env, -1);
     }
 
-    if (!(args[0].IsBuffer() && args[1].IsNumber() && args[2].IsNumber() && args[3].IsNumber())) {
+    if (!(args[0].IsNumber() && args[1].IsNumber() && args[2].IsBuffer())) {
         Napi::TypeError::New(env, "Wrong type arguments to FileMapping.readInto").ThrowAsJavaScriptException();
         return Napi::Number::New(env, -1);
     }
 
-    char *bufferData = args[0].As < Napi::Buffer < char >> ().Data();
-    auto destOffest = args[1].As<Napi::Number>().Uint32Value();
-    auto srcOffset = args[2].As<Napi::Number>().Uint32Value();
-    auto length = args[3].As<Napi::Number>().Uint32Value();
+    auto offset = args[0].As<Napi::Number>().Uint32Value();
+    auto length = args[1].As<Napi::Number>().Uint32Value();
+	char *bufferData = args[2].As < Napi::Buffer < char >> ().Data();
 
-    memcpy(bufferData + destOffest, reinterpret_cast<char *>(this->m_ptr) + srcOffset, length);
+    memcpy(bufferData + offset, reinterpret_cast<char *>(this->m_ptr), length);
 
     return Napi::Number::New(env, 1);
 }

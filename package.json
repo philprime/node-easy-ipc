@@ -1,10 +1,10 @@
 {
-  "name": "node-easy-ipc",
-  "version": "1.0.0",
+  "name": "@fynnix/node-easy-ipc",
+  "version": "1.0.8",
   "description": "Easy IPC addon implementation for Windows using messages, filemapping, mutex, threads.",
   "main": "build/Release/addon.node",
   "scripts": {
-    "build": "node-gyp configure build --this command needs to run from the console directly not from npm"
+    "install": "node-gyp-build"
   },
   "repository": {
     "type": "git",
@@ -14,10 +14,10 @@
     "windows",
     "ipc",
     "getmessage",
-	"sendmessage",
-	"mutex",
-	"thread",
-	"filemapping"
+    "sendmessage",
+    "mutex",
+    "thread",
+    "filemapping"
   ],
   "author": "Winexcel",
   "license": "ISC",
@@ -26,8 +26,8 @@
     "url": "https://github.com/Winexcel/node-easy-ipc/issues"
   },
   "homepage": "https://github.com/Winexcel/node-easy-ipc#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "node-addon-api": "^3.1.0"
+  "dependencies": {
+    "node-addon-api": "^3.1.0",
+    "node-gyp-build": "^4.2.3"
   }
 }
