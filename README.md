@@ -1,4 +1,7 @@
 # NodeEasyIPC
+This is a fork of the [NodeEasyIPC Module](https://github.com/Winexcel/node-easy-ipc). I added a Prebuild for Windows and added a install script.
+I forked it because the original didnt worked here.
+
 Easy IPC addon implementation for Windows which allow to use messages, filemapping, mapping/shared memory, mutex, threads.
 
 # Installation
