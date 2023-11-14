@@ -1,8 +1,8 @@
 {
   "name": "@fynnix/node-easy-ipc",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Easy IPC addon implementation for Windows using messages, filemapping, mutex, threads.",
-  "main": "build/Release/addon.node",
+  "main": "build/Release/nodeeasyipc.node",
   "scripts": {
     "install": "node-gyp-build"
   },
