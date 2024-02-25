@@ -28,6 +28,7 @@
   "homepage": "https://github.com/philprime/node-easy-ipc#readme",
   "dependencies": {
     "node-addon-api": "^3.1.0",
+    "node-gyp": "^10.0.1",
     "node-gyp-build": "^4.2.3"
   }
 }
