@@ -1,5 +1,5 @@
 {
-  "name": "@fynnix/node-easy-ipc",
+  "name": "@philprime/node-easy-ipc",
   "version": "1.1.0",
   "description": "Easy IPC addon implementation for Windows using messages, filemapping, mutex, threads.",
   "main": "build/Release/nodeeasyipc.node",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FynniX/node-easy-ipc.git"
+    "url": "git+https://github.com/philprime/node-easy-ipc.git"
   },
   "keywords": [
     "windows",
@@ -23,9 +23,9 @@
   "license": "ISC",
   "gypfile": true,
   "bugs": {
-    "url": "https://github.com/FynniX/node-easy-ipc/issues"
+    "url": "https://github.com/philprime/node-easy-ipc/issues"
   },
-  "homepage": "https://github.com/FynniX/node-easy-ipc#readme",
+  "homepage": "https://github.com/philprime/node-easy-ipc#readme",
   "dependencies": {
     "node-addon-api": "^3.1.0",
     "node-gyp-build": "^4.2.3"

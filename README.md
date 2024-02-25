@@ -1,4 +1,5 @@
 # NodeEasyIPC
+
 This is a fork of the [NodeEasyIPC Module](https://github.com/Winexcel/node-easy-ipc). I added a Prebuild for Windows and added a install script.
 I forked it because the original didnt worked here.
 
@@ -10,12 +11,11 @@ You will need to have visual studio installed on your machine to build! I've onl
 
 It should install like any other package, and build the native components automatically:
 
-
-`npm install @fynnix/node-easy-ipc`
+`npm install @philprime/node-easy-ipc`
 
 **This library is windows only**. If you want to run your app on other platforms, you can make it an optional install:
 
-`npm install --save-optional @fynnix/node-easy-ipc`
+`npm install --save-optional @philprime/node-easy-ipc`
 
 You will then have to deal with the package not being available on other systems in your code. You should look at mmap-io or node-mmap for that.
 
@@ -26,47 +26,59 @@ You should probably be familiar with how to use the Win32 file mapping and mutex
 To create a file mapping object:
 
 ```js
-const NodeIPC = require('node-easy-ipc');
+const NodeIPC = require("node-easy-ipc");
 const map = new NodeIPC.FileMapping();
 
 map.createMapping(
-    'file.txt',        // Name of file (Can be null if you just want shared memory). If the file does not exist, it will be created.
-    'my_mapped_file',  // Shared memory name (Cannot be null).
-    20);               // Mapping size - How many bytes of the file to map into memory, or how large of a shared memory location to create.
+  "file.txt", // Name of file (Can be null if you just want shared memory). If the file does not exist, it will be created.
+  "my_mapped_file", // Shared memory name (Cannot be null).
+  20
+); // Mapping size - How many bytes of the file to map into memory, or how large of a shared memory location to create.
 
-buffer = Buffer.alloc(20)
+buffer = Buffer.alloc(20);
 map.readInto(
-    0,         // What byte offset to start reading from
-    20,        // How many bytes to read
-    buffer);   // A buffer object to read into
+  0, // What byte offset to start reading from
+  20, // How many bytes to read
+  buffer
+); // A buffer object to read into
 
-console.log(buffer.ToString('utf8'));
+console.log(buffer.ToString("utf8"));
 ```
 
 #API
+
 ## `IPC`
+
 Main interprocess communication interface.
+
 #### `getPID`
+
 Returns pid of current process.
 
 #### `getMainThreadId`
+
 Returns thread id of current Node.js instance.
 
 #### `getMessageThreadId`
+
 Returns thread id of current IPC instance.
 
 #### `waitThread`
+
 Waits while current thread terminates.
 
 #### `on`
+
 Messages listener from other threads.
+
 ```js
-ipc.on('message', async (data) => {
-    console.log(data);
+ipc.on("message", async (data) => {
+  console.log(data);
 });
 ```
 
-#### `send` 
+#### `send`
+
 Sends message to another thread.
 
 ## `FileMapping`
@@ -177,6 +189,6 @@ Waits for multiple mutexes
 
 `time` - Just like `wait`, how long to wait for the lock to be granted. Does not default to `INFINITE`, however.
 
-Refer to [MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/ms687025(v=vs.85).aspx) for details on the return value.
+Refer to [MSDN](<https://msdn.microsoft.com/en-us/library/windows/desktop/ms687025(v=vs.85).aspx>) for details on the return value.
 
 # [License](LICENSE)
