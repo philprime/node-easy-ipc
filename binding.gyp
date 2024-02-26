@@ -11,16 +11,16 @@
         "<!(node -p \"require('node-addon-api').include_dir\")"
       ],
       "target_name": "nodeeasyipc",
+      "sources": [
+        "src/windows/addon.cc",
+        "src/windows/filemap.cc",
+        "src/windows/mutex.cc",
+        "src/windows/ipc.cc"
+      ],
       "conditions": [
         [
           'OS=="win"',
           {
-            "sources": [
-              "src/windows/addon.cc",
-              "src/windows/filemap.cc",
-              "src/windows/mutex.cc",
-              "src/windows/ipc.cc"
-            ],
             "defines": [
               "WINDOWS_BUILD"
             ]
@@ -34,7 +34,8 @@
             ]
           }
         ]
-      ]
+      ],
+      "defines": ["NAPI_DISABLE_CPP_EXCEPTIONS"]
     }
   ]
 }
